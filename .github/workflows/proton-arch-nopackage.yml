@@ -20,6 +20,9 @@ jobs:
           chown user -R ..
           chown user -R /tmp
           export CARGO_HOME="$PWD"
+          cd wine-tkg-git 
+          sed -i 's/_wayland_driver="false"/_wayland_driver="true"/' customization.cfg
+          cd ..
           cd proton-tkg
           sed -i 's/distro=""/distro="archlinux"/' proton-tkg.cfg
           sed -i 's/uninstaller="false"/uninstaller="true"/' proton-tkg.cfg
